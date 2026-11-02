@@ -46,7 +46,7 @@ The linkage was then simplified into a kinematic representation for analysing th
 The transformation between the individual links was formulated using a kinematic transformation matrix.
 
 <p align="center">
-  <img src="img/equation_kinematic_transformation_matrix.svg" width="800">
+  <img src="img/equation_kinematic_transformation_matrix-inverted.svg" width="800">
 </p>
 
 ---
@@ -58,7 +58,7 @@ The prototype was designed for fabrication using **FDM-printed ABS**.
 Since FDM components exhibit direction-dependent mechanical properties, the material was modelled as anisotropic.
 
 <p align="center">
-  <img src="img/equation_anisotropic_stiffness_matrix.svg" width="800">
+  <img src="img/equation_anisotropic_stiffness_matrix-inverted.svg" width="800">
 </p>
 
 ---
