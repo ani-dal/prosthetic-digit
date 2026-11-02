@@ -47,7 +47,7 @@ The linkage was then simplified into a kinematic representation for analysing th
 
 The transformation between the individual links was formulated as:
 
-$$
+```math
 [T_4^0] =
 \begin{bmatrix}
 C_{(\theta_m+\theta_p+\theta_d)}
@@ -64,9 +64,9 @@ L_{dip}S_{(\theta_m+\theta_p)} + L_{dim}S_{\theta_m}
 \\
 0 & 0 & 1
 \end{bmatrix}
-$$
+```
 
-where \(C_\theta = \cos(\theta)\) and \(S_\theta = \sin(\theta)\).
+where $C_\theta = \cos(\theta)$ and $S_\theta = \sin(\theta)$.
 
 ---
 
@@ -78,7 +78,17 @@ Since FDM components exhibit direction-dependent mechanical properties, the mate
 
 ### Anisotropic Material Model
 
-$$
+The stress-strain relationship is written as:
+
+```math
+\boldsymbol{\epsilon} = [S]\boldsymbol{\sigma}
+```
+
+where
+
+```math
+\boldsymbol{\epsilon}
+=
 \begin{bmatrix}
 \epsilon_{xx} \\
 \epsilon_{yy} \\
@@ -87,36 +97,47 @@ $$
 \gamma_{yz} \\
 \gamma_{zx}
 \end{bmatrix}
+```
+
+```math
+[S]
 =
 \begin{bmatrix}
 \frac{1}{E_x} &
 -\frac{\nu_{xy}}{E_y} &
 -\frac{\nu_{zx}}{E_z} &
-0 & 0 & 0
-\\
+0 & 0 & 0 \\
+
 -\frac{\nu_{xy}}{E_x} &
 \frac{1}{E_y} &
 -\frac{\nu_{zy}}{E_z} &
-0 & 0 & 0
-\\
+0 & 0 & 0 \\
+
 -\frac{\nu_{xz}}{E_x} &
 -\frac{\nu_{yz}}{E_y} &
 \frac{1}{E_z} &
-0 & 0 & 0
-\\
+0 & 0 & 0 \\
+
 0 & 0 & 0 &
 \frac{1}{2G_{yz}} &
-0 & 0
-\\
+0 & 0 \\
+
 0 & 0 & 0 &
 0 &
 \frac{1}{2G_{xz}} &
-0
-\\
+0 \\
+
 0 & 0 & 0 &
 0 & 0 &
 \frac{1}{2G_{xy}}
 \end{bmatrix}
+```
+
+and
+
+```math
+\boldsymbol{\sigma}
+=
 \begin{bmatrix}
 \sigma_{xx} \\
 \sigma_{yy} \\
@@ -125,8 +146,7 @@ $$
 \tau_{yz} \\
 \tau_{zx}
 \end{bmatrix}
-$$
-
+```
 ---
 
 ## Compliant Finger Geometry
