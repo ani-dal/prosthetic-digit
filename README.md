@@ -43,27 +43,30 @@ The linkage was then simplified into a kinematic representation for analysing th
   <img src="img/finger_kinematic_linkage_diagram.jpeg" width="700">
 </p>
 
-The transformation between the individual links was formulated using a kinematic transformation matrix.
-
 ### Kinematic Transformation
 
+The transformation between the individual links was formulated as:
+
 $$
-\def\U{\theta_{m}}
-\def\V{\theta_{p}}
-\def\W{\theta_{d}}
-[T_{4}^{0}] =
+[T_4^0] =
 \begin{bmatrix}
-C_{(\U+\V+\W)} &
--S_{(\U+\V+\W)} &
-L_{prp} + L_{dip} C_{(\U+\V)} + L_{dim} C_{\U}
+C_{(\theta_m+\theta_p+\theta_d)}
+&
+-S_{(\theta_m+\theta_p+\theta_d)}
+&
+L_{prp} + L_{dip}C_{(\theta_m+\theta_p)} + L_{dim}C_{\theta_m}
 \\
-S_{(\U+\V+\W)} &
-C_{(\U+\V+\W)} &
-L_{dip} S_{(\U+\V)} + L_{dim} S_{\U}
+S_{(\theta_m+\theta_p+\theta_d)}
+&
+C_{(\theta_m+\theta_p+\theta_d)}
+&
+L_{dip}S_{(\theta_m+\theta_p)} + L_{dim}S_{\theta_m}
 \\
 0 & 0 & 1
 \end{bmatrix}
 $$
+
+where \(C_\theta = \cos(\theta)\) and \(S_\theta = \sin(\theta)\).
 
 ---
 
@@ -98,7 +101,7 @@ $$
 \\
 -\frac{\nu_{xz}}{E_x} &
 -\frac{\nu_{yz}}{E_y} &
-\frac{\nu_{1}}{E_z} &
+\frac{1}{E_z} &
 0 & 0 & 0
 \\
 0 & 0 & 0 &
@@ -180,5 +183,3 @@ The analysis indicated that the design performs better under **axial loading**, 
 The complete B.Tech capstone report containing the methodology, theoretical development, simulations and results is available here:
 
 ### [View Full Capstone Project Report](report/Capstone_Report.pdf)
-
----
