@@ -45,9 +45,25 @@ The linkage was then simplified into a kinematic representation for analysing th
 
 The transformation between the individual links was formulated using a kinematic transformation matrix.
 
-<p align="center">
-  <img src="img/equation_kinematic_transformation_matrix-inverted.svg" width="800">
-</p>
+### Kinematic Transformation
+
+$$
+\def\U{\theta_{m}}
+\def\V{\theta_{p}}
+\def\W{\theta_{d}}
+[T_{4}^{0}] =
+\begin{bmatrix}
+C_{(\U+\V+\W)} &
+-S_{(\U+\V+\W)} &
+L_{prp} + L_{dip} C_{(\U+\V)} + L_{dim} C_{\U}
+\\
+S_{(\U+\V+\W)} &
+C_{(\U+\V+\W)} &
+L_{dip} S_{(\U+\V)} + L_{dim} S_{\U}
+\\
+0 & 0 & 1
+\end{bmatrix}
+$$
 
 ---
 
@@ -57,9 +73,56 @@ The prototype was designed for fabrication using **FDM-printed ABS**.
 
 Since FDM components exhibit direction-dependent mechanical properties, the material was modelled as anisotropic.
 
-<p align="center">
-  <img src="img/equation_anisotropic_stiffness_matrix-inverted.svg" width="800">
-</p>
+### Anisotropic Material Model
+
+$$
+\begin{bmatrix}
+\epsilon_{xx} \\
+\epsilon_{yy} \\
+\epsilon_{zz} \\
+\gamma_{xy} \\
+\gamma_{yz} \\
+\gamma_{zx}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{1}{E_x} &
+-\frac{\nu_{xy}}{E_y} &
+-\frac{\nu_{zx}}{E_z} &
+0 & 0 & 0
+\\
+-\frac{\nu_{xy}}{E_x} &
+\frac{1}{E_y} &
+-\frac{\nu_{zy}}{E_z} &
+0 & 0 & 0
+\\
+-\frac{\nu_{xz}}{E_x} &
+-\frac{\nu_{yz}}{E_y} &
+\frac{\nu_{1}}{E_z} &
+0 & 0 & 0
+\\
+0 & 0 & 0 &
+\frac{1}{2G_{yz}} &
+0 & 0
+\\
+0 & 0 & 0 &
+0 &
+\frac{1}{2G_{xz}} &
+0
+\\
+0 & 0 & 0 &
+0 & 0 &
+\frac{1}{2G_{xy}}
+\end{bmatrix}
+\begin{bmatrix}
+\sigma_{xx} \\
+\sigma_{yy} \\
+\sigma_{zz} \\
+\tau_{xy} \\
+\tau_{yz} \\
+\tau_{zx}
+\end{bmatrix}
+$$
 
 ---
 
